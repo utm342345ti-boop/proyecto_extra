@@ -1,0 +1,28 @@
+{% extends "store/base.html" %}
+
+{% block title %}Catálogo{% endblock %}
+
+{% block content %}
+<h2>Catálogo de Productos</h2>
+
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4 mt-3">
+        <div class="card">
+        
+            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">${{ product.price }}</p>
+                <a href="{% url 'store:product_detail' product.id %}" class="btn btn-primary">
+                    Ver detalles
+                </a>
+                
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No hay productos disponibles.</p>
+    {% endfor %}
+</div>
+{% endblock %}
