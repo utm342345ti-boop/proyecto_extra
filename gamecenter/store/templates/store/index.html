@@ -1,0 +1,37 @@
+{% extends "store/base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Bienvenido a GameStore</h1>
+    <p class="lead mt-3">
+        Somos una tienda especializada en videojuegos y accesorios para distintas consolas.
+        Ofrecemos productos de calidad y trabajamos con diversos proveedores.
+    </p>
+    
+    </section>
+    <section style="margin-top:30px">
+    <h2>Productos destacados</h2>
+    <div class="cards">
+        {% for p in featured %}
+        <div class="card">
+            <h3>{{ p.name }}</h3>
+            <p><strong>${{ p.price }}</strong></p>
+            <a class="btn" href="{% url 'store:product_detail' p.slug %}">
+                Ver producto
+            </a>
+        </div>
+        {% empty %}
+        <p>No hay productos aún.</p>
+        {% endfor %}
+    </div>
+</section>
+<section style="margin-top:40px;text-align:center">
+    <a class="btn" href="{% url 'store:catalog' %}">
+        Ver todo el catálogo
+    </a>
+</section>
+    
+</div>
+{% endblock %}
