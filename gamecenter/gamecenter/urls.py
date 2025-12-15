@@ -21,10 +21,18 @@ from django.conf.urls.static import static
 from django.urls import include
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include (('store.urls','store'),namespace='store')),
+
+
 ]
+if settings.DEBUG:
+
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,)

@@ -7,8 +7,7 @@
 
 <div class="row">
     <div class="col-md-6">
-        <img src="{{ product.images.url }}" class="img-fluid">
-    </div>
+        <img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.name }}">    </div>
     <div class="col-md-6">
         <p><strong>Precio:</strong> ${{ product.price }}</p>
         <p><strong>Existencia:</strong> {{ product.stock }}</p>

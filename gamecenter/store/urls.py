@@ -20,3 +20,4 @@ urlpatterns = [
     path('producto/<slug:slug>/', views.product_detail, name='product_detail'),
     path('proveedores/contacto/', views.contact_provider, name='contact_provider'),
 ]
+
